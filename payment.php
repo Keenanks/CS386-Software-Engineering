@@ -15,11 +15,24 @@
 
         <script src="https://js.stripe.com/v3/"></script>
     <div class="container">
+        <h2 class="my-4 text-center">Checkout</h2>
         <form action="charge.php" method="post" id="payment-form">
             <div class="form-row">
-            <label for="card-element">
-                Credit or debit card
-            </label>
+            <input name="first_name" 
+                   type = "text" 
+                   class="form-control mb-3 StripeElement StripeElement--empty"
+                   placeholder="First Name">
+            <input name="last_name"
+                   type="text"
+                   class="form-control mb-3 StripeElement StripeElement--empty"
+                   placeholder="Last Name">
+            <input name="email"
+                   type="email"
+                   class="form-control mb-3 StripeElement StripeElement--empty"
+                   placeholder="Email">
+                
+            <!-- add more input fields for address and phone number -->
+                
             <div id="card-element" class="form-control">
             <!-- A Stripe Element will be inserted here. -->
             </div>
@@ -31,7 +44,11 @@
             <button>Submit Payment</button>
         </form>
     </div>
-        
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous">
+        </script>
         <script src = "charge.js"></script>
     </body>
 </html>
