@@ -24,8 +24,10 @@ var style = {
   }
 };
 
-// style button with BS
-document.querySelector('#payment-form button').classList = 'btn btn-primary btn-block mt-4';
+// style button with BootStrap
+document.querySelector('#payment-form button').classList = 
+    'btn btn-primary btn-block ' + 
+    'mt-3 btn-outline-info btn-dark ';
 
 // Create an instance of the card Element.
 var card = elements.create('card', {style: style});
@@ -55,6 +57,7 @@ form.addEventListener('submit', function(event) {
       errorElement.textContent = result.error.message;
     } else {
       // Send the token to your server.
+        
       stripeTokenHandler(result.token);
     }
   });
