@@ -1,0 +1,41 @@
+@font-face 
+{
+    font-family: newfont;
+    src: url(Karla-Regular.ttf);
+}
+
+body 
+{
+    margin:0;
+}
+
+html 
+{ 
+    font-family: newfont;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background: #9ebfc1;
+  color: black;
+}
+
+.main {*/
+}
