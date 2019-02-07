@@ -7,6 +7,9 @@
     <link rel = "stylesheet"
     type = "text/css"
     href = "homepage.css" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    
 </head>
     
     
@@ -22,7 +25,6 @@
   <a href="#discover">Discover</a>
   <div class="dropdown">
   <button class="dropbtn" onclick="myFunction()">Account
-    <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-content" id="myDropdown">
     <a href="#">Link 1</a>
