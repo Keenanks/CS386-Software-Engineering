@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<?php
-echo "This is the homepage";
-
-
-?>
 
 <html>
 <head>
@@ -19,23 +14,44 @@ echo "This is the homepage";
 
 <div class="navbar">
     <a href="#home">
-  <img src="logo%20copy.jpg" alt="Logo" class = "logo picture" style="opacity: 0.7; width: 19px;"></a>
+  <img src="logo%20copy.jpg" alt="Logo" class = "logo picture" style="opacity: 0.7; width: 16px;"></a>
     
   <a href="#home">Home</a>
   <a href="#songs">Songs</a>
   <a href="#shop">Shop</a>
   <a href="#discover">Discover</a>
-    <a href="#account" style="float: right">
-        Account
-    <img src="logo%20copy.jpg" alt="Logo" class = "logo picture" style="opacity: 0.7; width: 20px; float: left">
-    
-    </a>
+  <div class="dropdown">
+  <button class="dropbtn" onclick="myFunction()">Account
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-content" id="myDropdown">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+  </div>
 </div>
+    
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }
+}
+</script>
 
 <div class="main">
-    <form action="payment.php">
-    <input type="submit" value="Go to payment" />
-</form>
+    <h1>HOMEPAGE BITCHES</h1>
 </div>
     
 </body>
