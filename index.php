@@ -2,7 +2,7 @@
 <html>
 
     <?php
-        header('Location: homepage.php');
+        header('Location: login.html');
     ?>
 
 </html>
