@@ -11,7 +11,7 @@ body
 
 html 
 { 
-    font-family: newfont;
+    font-family: 'Karla', sans-serif;
 }
 
 .navbar {
@@ -21,10 +21,10 @@ html
 
 .navbar a {
   float: left;
-  font-size: 16px;
+  font-size: 20px;
   color: white;
   text-align: center;
-  padding: 10px 14px;
+  padding: 10px 80px;
   text-decoration: none;
 }
 
@@ -33,13 +33,17 @@ html
   overflow: hidden;
 }
 
+.dropbtn{
+    font-size: 20px;
+}
+
 .dropdown .dropbtn {
   cursor: pointer;
-  font-size: 16px;  
+  /*font-size: 20px; */ 
   border: none;
   outline: none;
   color: white;
-  padding: 10px 16px;
+  padding: 10px 80px;
   background-color: inherit;
   margin: 0;
 }
@@ -47,22 +51,25 @@ html
 .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
   background-color: #9ebfc1;
     color:black;
-    padding: 20px 20px;
+    height: 100%;
+    /*padding: 10px 80px;*/
 }
 
 .dropdown-content {
   display: none;
-  position: absolute;
+  position: fixed;
   background-color: #333;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  width: 100%;
 }
 
 .dropdown-content a {
   float: none;
   color: white;
-  padding: 12px 16px;
+  width: 100%;
+  /*padding: ;*/
   text-decoration: none;
   display: block;
   text-align: left;
