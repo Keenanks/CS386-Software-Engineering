@@ -71,50 +71,6 @@ mysqli_close($conn);
     
     <h1>SONGPAGE</h1>
     
-    <script>
-        function initAudio()
-           {
-               
-               
-               
-               
-               
-               
-               
-               
-               
-            var audio = new Audio();
-            audio.src = //<?//php $row['song_file'];?>; // have it select a specific song file
-               audio.load();
-               audio.loop = true;
-               audio.play();
-               var elementID = "" + <?php $row['title']. "play";?>;
-               // get the name of button element specific to song
-               var playButton = document.getElementById(elementID);
-               
-               // add event
-               playButton.addEventListener("click", playPause(audio, playButton));
-           }
-        
-        function playPause(audio, playbtn)
-           {
-            return function()
-               {
-                if( audio.paused )
-                    {
-                     audio.play();
-                    }
-                else
-                    {
-                     audio.pause();
-                    }
-               }
-           }
-    
-    
-    
-    
-    </script>
     
     
     
