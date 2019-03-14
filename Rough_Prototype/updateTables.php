@@ -24,6 +24,24 @@ $songList = "INSERT INTO songTable (song_file, album, genre, artist, title) VALU
 $songList .= "INSERT INTO songTable (song_file, album, genre, artist, title) VALUES ('Dee_Yan-Key_-_04_-_Vivace_con_spirito.mp3', 'Divertimento of Life', 'Classical',
 'Dee Yan-Key', 'Vivace con spirito');";
 
+$songList .= "INSERT INTO songTable (song_file, album, genre, artist, title) VALUES ('Deep.mp3', '386SQUAD', 'HipHop',
+'NOR.T.H', 'Deep');";
+
+$songList .= "INSERT INTO songTable (song_file, album, genre, artist, title) VALUES ('Ocean.mp3', '386SQUAD', 'HipHop',
+'NOR.T.H', 'Ocean');";
+
+$songList .= "INSERT INTO songTable (song_file, album, genre, artist, title) VALUES ('Peak.mp3', '386SQUAD', 'HipHop',
+'NOR.T.H', 'Peak');";
+
+$songList .= "INSERT INTO songTable (song_file, album, genre, artist, title) VALUES ('Potential.mp3', '386SQUAD', 'HipHop',
+'NOR.T.H', 'Potential');";
+
+$songList .= "INSERT INTO songTable (song_file, album, genre, artist, title) VALUES ('Reality.mp3', '386SQUAD', 'HipHop',
+'NOR.T.H', 'Reality');";
+
+$songList .= "INSERT INTO songTable (song_file, album, genre, artist, title) VALUES ('Unchanged.mp3', '386SQUAD', 'HipHop',
+'NOR.T.H', 'Unchanged');";
+
 if( mysqli_multi_query($conn, $songList))
    {
     echo "songs added successfully"; 
