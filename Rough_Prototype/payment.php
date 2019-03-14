@@ -12,6 +12,10 @@
         </title>
     </head>
     <body>
+        
+        <?php
+    include('NavBar.php');
+    ?>
 
         <script src="https://js.stripe.com/v3/"></script>
     <div class="container">
