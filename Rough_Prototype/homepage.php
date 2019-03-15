@@ -3,8 +3,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    
+	<link href="hhtps://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
     
 </head>
@@ -14,8 +13,9 @@
 
  <?php
     include('NavBar.php');
+	include('banner.php');
+	include('footer.php');
     ?>
-    <h1>HOMEPAGE</h1>
     
 </body>
 </html>
