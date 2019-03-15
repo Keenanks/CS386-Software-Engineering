@@ -35,9 +35,33 @@ if( !$conn )
     <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
     
     <style>
-        div#mp3_player{ position: fixed; bottom: 0; width:100%; height:60px; background:#F3F3F3; padding:5px; }
-        div#mp3_player > div > audio{  width:30%; background:#F3F3F3; float:left;  }
-        div#mp3_player > canvas{ width:70%; height:60px; background-color: #9ebfc1; float:left; }
+        div#mp3_player
+        { 
+            position: fixed; 
+            bottom: 0%; 
+            width:100%; 
+            height: 60px; 
+            background:#F3F3F3; 
+            padding: 0px;
+        }
+        
+        div#mp3_player > div > audio
+        {
+            width:100%; 
+            background:#F3F3F3; 
+            float:left; 
+            height: 30px; 
+            padding: 0px;
+        }
+        
+        div#mp3_player > canvas
+        { 
+            width:100%; 
+            height:30px; 
+            background-color: #9ebfc1; 
+            float:left; 
+            padding: 0px;
+        }
     </style>
     
     <script>
@@ -199,7 +223,7 @@ mysqli_close($conn);
      so that the bar stays and continues to play while navigating the website
 -->
     <div id="mp3_player" style="background-color: #F3F3F3;">
-  <div id="audio_box"></div>
+  <div id="audio_box"></div><br>
   <canvas id="analyser_render"></canvas>
     </div>
     
