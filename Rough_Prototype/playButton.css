@@ -29,6 +29,8 @@
 
 .playDiv {
     text-align: left;
+    max-height: 50%;
+    bottom: 30%;
 }
 
 #audioPlayer {
@@ -48,4 +50,10 @@
 
 .songInfoDiv {
     display: inline-block;
+}
+
+.audio_box
+{
+    background-color: white;
+    width: 100%;
 }

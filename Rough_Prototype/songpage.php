@@ -35,9 +35,33 @@ if( !$conn )
     <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
     
     <style>
-        div#mp3_player{ position: fixed; bottom: 0; width:100%; height:60px; background:#000; padding:5px; margin:50px auto; }
-        div#mp3_player > div > audio{  width:500px; background:#000; float:left;  }
-        div#mp3_player > canvas{ width:73.8%; height:60px; background-color: #9ebfc1; float:left; }
+        div#mp3_player
+        { 
+            position: fixed; 
+            bottom: 0%; 
+            width:100%; 
+            height: ; 
+            background:#F3F3F3; 
+            padding: 0px;
+        }
+        
+        div#mp3_player > div > audio
+        {
+            width:100%; 
+            background:#F3F3F3; 
+            float:left; 
+            height: 30px; 
+            padding: 0px;
+        }
+        
+        div#mp3_player > canvas
+        { 
+            width:100%; 
+            height:30px; 
+            background-color: #9ebfc1; 
+            float:left; 
+            padding: 0px;
+        }
     </style>
     
     <script>
@@ -156,6 +180,10 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) 
    {
     // output data of each row
+    $savedSongsHeading = "<h1>Your Saved Songs</h1>";
+    $spacing = "<br><br><br><br><br>";
+    $smallerSpacing ="<br><br>";
+    echo $spacing.$savedSongsHeading.$smallerSpacing;
     while($row = mysqli_fetch_assoc($result)) 
        {
         //$functionString = "getSongInfo('".$row['title']."')";
@@ -163,7 +191,7 @@ if (mysqli_num_rows($result) > 0)
         //  the bottom of the screen.
         $startDiv = "<div class = 'playDiv' id = '".$row['title']."'>";
         $createPlayButton = "<button class='playButton' onclick = "."getSongInfo('".$row['title']."Test')"."></button>";
-        $songInfo = "<div class = 'songInfoDiv' id = '".$row['title']."Test'>".$row['title'] . " By ". $row['artist'] . "</div><br><br>";
+        $songInfo = "&emsp;<div class = 'songInfoDiv' id = '".$row['title']."Test'>".$row['title'] . " by ". $row['artist'] . "</div><br><br>";
         $endDiv = "</div>";
         echo $startDiv.$createPlayButton.$songInfo.$endDiv;
         
@@ -192,15 +220,14 @@ mysqli_close($conn);
 ?>
 
     
-    <h1>SONGPAGE</h1>
     
     
 <!-- for now we will place the div here that contains the audio bar, but we should make it
      so that the bar stays and continues to play while navigating the website
 -->
-    <div id="mp3_player">
-  <div id="audio_box" style="width:30%"></div>
-  <canvas id="analyser_render" style="width:70%"></canvas>
+    <div id="mp3_player" style="background-color: #F3F3F3;">
+  <div id="audio_box"></div><br>
+  <canvas id="analyser_render"></canvas>
     </div>
     
 </body>
