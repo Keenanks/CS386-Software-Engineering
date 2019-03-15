@@ -58,7 +58,7 @@ if( !$conn )
         { 
             width:100%; 
             height:30px; 
-            background-color: #9ebfc1; 
+            background-color: #F3F3F3; 
             float:left; 
             padding: 0px;
         }
@@ -139,13 +139,14 @@ function frameLooper(){
 	window.requestAnimationFrame(frameLooper);
 	fbc_array = new Uint8Array(analyser.frequencyBinCount);
 	analyser.getByteFrequencyData(fbc_array);
+    canvas.backgroundColor = 'white';
 	ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
-	ctx.fillStyle = 'blueviolet'; // Color of the bars
-	bars = 100;
+	ctx.fillStyle = "#9ebfc1"; // Color of the bars
+	bars = 300;
 	for (var i = 0; i < bars; i++) {
 		bar_x = i * 3;
 		bar_width = 2;
-		bar_height = -(fbc_array[i] / 2);
+		bar_height = -(fbc_array[i] / 2 );
 		//  fillRect( x, y, width, height ) // Explanation of the parameters below
 		ctx.fillRect(bar_x, canvas.height, bar_width, bar_height);
 	}
@@ -190,18 +191,12 @@ if (mysqli_num_rows($result) > 0)
         // create a button here and when clicked the button plays the song which will appear at
         //  the bottom of the screen.
         $startDiv = "<div class = 'playDiv' id = '".$row['title']."'>";
-        $createPlayButton = "<button class='playButton' onclick = "."getSongInfo('".$row['title']."Test')"."></button>";
+        $createPlayButton = "<button class='playButton' onclick = "."getSongInfo('".$row['title']."Test')"." >&#9658;</button>";
         $songInfo = "&emsp;<div class = 'songInfoDiv' id = '".$row['title']."Test'>".$row['title'] . " by ". $row['artist'] . "</div><br><br>";
         $endDiv = "</div>";
         echo $startDiv.$createPlayButton.$songInfo.$endDiv;
         
-        
-        
-        
-        
-        
-        
-        
+
         /* create a div with a name to add a button that plays the song when selected
         echo "<div id = '" . $row["song_id"] . "'> <audio controls controlsList='nodownload'>
         <source src = ".$row['song_file']." /></audio>"

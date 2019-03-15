@@ -14,15 +14,23 @@
 
 
 .playButton {
-  background-color: #9ebfc1;
-  border-radius: 100%;
-  background-image: url('play2.png');
+  background-color: #F3F3F3;
+  border-color: #F3F3F3;
   width: 30px;
-  height: 30px;
-  padding: 13px;
+    height: 30px;
+    border-radius: 50%;
+  font-size: 20px;
+  padding: 11px;
   cursor: pointer;
-}
+  padding: 0px;
+    right: 5px;
 
+}
+.playButton:hover
+{
+    border-color: #9ebfc1;
+    color: #9ebfc1;
+}
 .playButton:focus {
     outline-style: none;
 }
