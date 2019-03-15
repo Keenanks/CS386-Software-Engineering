@@ -1,0 +1,51 @@
+/*.button {
+  color: black;
+  background-color: #9ebfc1;
+  font-weight: bold;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+  border-radius: 25px;
+  padding: 20px;
+  position: fixed;
+}*/
+
+
+.playButton {
+  background-color: #9ebfc1;
+  border-radius: 100%;
+  background-image: url('play2.png');
+  width: 30px;
+  height: 30px;
+  padding: 13px;
+  cursor: pointer;
+}
+
+.playButton:focus {
+    outline-style: none;
+}
+
+.playDiv {
+    text-align: left;
+}
+
+#audioPlayer {
+    position: fixed;
+    bottom: 0;
+    height: 42px;
+    width: 100%;
+    background: #000;
+    padding: 25px;
+}
+
+#analyser {
+    background: #002D3C;
+    width: 95%;
+    float: left;
+}
+
+.songInfoDiv {
+    display: inline-block;
+}
