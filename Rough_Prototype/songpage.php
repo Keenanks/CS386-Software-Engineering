@@ -79,10 +79,6 @@ if( !$conn )
                
         }
         
-   
-    
-    
-        
         
     // create a new instance of an audio object
 //function starMusic(endSongProduct)
@@ -203,8 +199,8 @@ mysqli_close($conn);
      so that the bar stays and continues to play while navigating the website
 -->
     <div id="mp3_player">
-  <div id="audio_box"></div>
-  <canvas id="analyser_render"></canvas>
+  <div id="audio_box" style="width:30%"></div>
+  <canvas id="analyser_render" style="width:70%"></canvas>
     </div>
     
 </body>
