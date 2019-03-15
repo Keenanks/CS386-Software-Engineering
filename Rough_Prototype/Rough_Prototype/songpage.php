@@ -40,7 +40,7 @@ if( !$conn )
             position: fixed; 
             bottom: 0%; 
             width:100%; 
-            height: 60px; 
+            height: ; 
             background:#F3F3F3; 
             padding: 0px;
         }
@@ -180,6 +180,10 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) 
    {
     // output data of each row
+    $savedSongsHeading = "<h1>Your Saved Songs</h1>";
+    $spacing = "<br><br><br><br><br>";
+    $smallerSpacing ="<br><br>";
+    echo $spacing.$savedSongsHeading.$smallerSpacing;
     while($row = mysqli_fetch_assoc($result)) 
        {
         //$functionString = "getSongInfo('".$row['title']."')";
@@ -187,7 +191,7 @@ if (mysqli_num_rows($result) > 0)
         //  the bottom of the screen.
         $startDiv = "<div class = 'playDiv' id = '".$row['title']."'>";
         $createPlayButton = "<button class='playButton' onclick = "."getSongInfo('".$row['title']."Test')"."></button>";
-        $songInfo = "<div class = 'songInfoDiv' id = '".$row['title']."Test'>".$row['title'] . " By ". $row['artist'] . "</div><br><br>";
+        $songInfo = "&emsp;<div class = 'songInfoDiv' id = '".$row['title']."Test'>".$row['title'] . " by ". $row['artist'] . "</div><br><br>";
         $endDiv = "</div>";
         echo $startDiv.$createPlayButton.$songInfo.$endDiv;
         
@@ -216,7 +220,6 @@ mysqli_close($conn);
 ?>
 
     
-    <h1>SONGPAGE</h1>
     
     
 <!-- for now we will place the div here that contains the audio bar, but we should make it

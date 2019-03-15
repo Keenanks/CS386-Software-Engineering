@@ -29,6 +29,8 @@
 
 .playDiv {
     text-align: left;
+    max-height: 50%;
+    bottom: 30%;
 }
 
 #audioPlayer {
