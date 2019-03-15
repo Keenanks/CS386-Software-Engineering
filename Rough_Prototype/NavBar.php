@@ -34,7 +34,7 @@
 				</li>
 				
 				<li>
-					<a href="#account">User</a>
+					<a href="login.html">User</a>
 				</li>
 			</ul>
 			
