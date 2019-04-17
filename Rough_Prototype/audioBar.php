@@ -9,7 +9,7 @@
           type = "text/css"
           href = "playButton.css"/>
     
-    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <!--link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet"-->
     
     <style>
         div#mp3_player
@@ -46,6 +46,8 @@
 	overflow-y: scroll;
 }
     </style>
+    
+<script src="SongPage_Script.js"></script>
 <script>
 
    /* 
@@ -59,16 +61,43 @@ function pauseSong()
     }
     */
 var audio = new Audio();
-         if(sessionStorage.getItem('song')!= null)
+         var receiveCookie = localStorage.getItem('lastPlayed');
+         if( receiveCookie != null && sessionStorage.getItem('song') == null)
+             {
+                 audio.src = receiveCookie;
+                 audio.currentTime = localStorage.getItem('timeStamp');
+                 audio.load();
+                 audio.play();
+             }
+         else if(sessionStorage.getItem('song')!= null)
              {
                  audio.src = sessionStorage.getItem('song');
                  audio.currentTime = sessionStorage.getItem('timeStamp');
                  audio.play();
-                 if(audio.paused)
+                 /*
+                 
+                 
+                 ///////////////////////////////////////////////////////////////
+                                    WE WILL PROBABLY NEED TO IMPLEMENT
+                                    A UNIQUE AUDIO BAR INSTEAD OF THE
+                                    BROWSERS DEFAULT AUDIO BAR
+                 ///////////////////////////////////////////////////////////////
+                 if(sessionStorage.getItem('checkPlaying') == 'true')
                      {
-                         sessionStorage.setItem('timeStamp',audio.currentTime);
+                         audio.play();
                      }
+                 else
+                     {
+                         audio.pause();
+                     }
+                     */
              }
+    
+        else
+            {
+                audio.src = "";
+            }
+    
          
          //audio.load();
          audio.controls = true;

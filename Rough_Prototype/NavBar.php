@@ -41,7 +41,7 @@
 				</li>
 				
 				<li>
-					<a href="#discover" onclick="updateTime()">Discover</a>
+					<a href="DiscoverPage.php" onclick="updateTime()">Discover</a>
 				</li>
 				
 				<li>

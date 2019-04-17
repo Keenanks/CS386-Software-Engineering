@@ -28,7 +28,7 @@
 				
 				<ul>	
 					<li>
-						<a href="#legal">Legal</a>
+						<a href="#legal">Legal-For testing purposes some songs were from https://www.bensound.com</a>
 					</li>
 					
 					<li>
