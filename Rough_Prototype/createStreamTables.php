@@ -26,10 +26,12 @@ $tableArray = array();
 // the SQL for a user table
 $userTable = "CREATE TABLE user (
     userID BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    firstname VARCHAR(30) NOT NULL,
+    userName VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    firstname VARCHAR(30),
     lastname VARCHAR(30),
     email VARCHAR(255) NOT NULL,
-    profilePic BLOB NOT NULL  
+    profilePic BLOB  
 )";
 
 // push table onto array
@@ -57,6 +59,18 @@ $songTable = "CREATE TABLE songTable (
 )";
 
 array_push($tableArray, $songTable);
+
+$discSong = "CREATE TABLE discTable (
+    song_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    song_file BLOB NOT NULL,
+    album VARCHAR(255) NOT NULL,
+    genre VARCHAR(255) NOT NULL,
+    artist VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    verify VARCHAR(255) NOT NULL
+)";
+
+array_push($tableArray, $discSong);
 
 
 // the plan is to create tables via looping through them
