@@ -32,7 +32,8 @@ session_start();
     href = "homepage.css" />
     
     
-    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    
+    <!--link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet"-->
     
     
     <script src = SongPage_Script.js></script>
