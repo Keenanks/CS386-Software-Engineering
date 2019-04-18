@@ -67,13 +67,21 @@ var audio = new Audio();
                  audio.src = receiveCookie;
                  audio.currentTime = localStorage.getItem('timeStamp');
                  audio.load();
-                 audio.play();
+                 //audio.play();
              }
          else if(sessionStorage.getItem('song')!= null)
              {
                  audio.src = sessionStorage.getItem('song');
                  audio.currentTime = sessionStorage.getItem('timeStamp');
-                 audio.play();
+                 audio.load();
+                 if( sessionStorage.getItem('status')=='playing')
+                     {
+                         audio.play();
+                     }
+                 else
+                     {
+                         audio.pause();
+                     }
                  /*
                  
                  
@@ -133,7 +141,7 @@ function frameLooper(){
 	analyser.getByteFrequencyData(fbc_array);
     canvas.backgroundColor = 'white';
 	ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
-	ctx.fillStyle = "#9ebfc1"; // Color of the bars
+	ctx.fillStyle = "cadetblue"; // Color of the bars
 	bars = 300;
 	for (var i = 0; i < bars; i++) {
 		bar_x = i * 3;

@@ -16,11 +16,6 @@ if( !$conn )
  {
   die( "Connection failed: " . mysqli_connect_error() );
  }
-
-if( $_SESSION[] = null )
-    {
-     session_start();
-    }
 ?>
 
 <!DOCTYPE HTML>
@@ -33,6 +28,7 @@ if( $_SESSION[] = null )
        <link rel = "stylesheet"
           type = "text/css"
           href = "discoverCSS.css"/>
+
         
         <script src="SongPage_Script.js"></script>
         
@@ -58,8 +54,6 @@ if( $_SESSION[] = null )
                 
             }
             
-            // default tab that is opened
-                // default is all
             
         </script>
     
@@ -81,14 +75,15 @@ if( $_SESSION[] = null )
                 then display the songs that fall in the category
     -->
         <br><br><br>
-        <br>
+        <br><br><br>
         <div class='generalSongTable'>
             <div class="tabs">
                 <button class="buttonTab" id="verified" onclick = "displaySongsForTab(event,'verifiedTable')">Discover Verified Indie Artists</button>
+                
                 <button class="buttonTab" id="allDiscover" onclick = "displaySongsForTab(event,'allTable')">Discover All Indie Artists</button>
             </div>
             
-            <div class = "content" id="verifiedTable">
+            <div class = "content" id="verifiedTable" style="display:block">
                 <?php
         $sql = "SELECT song_id, title, artist, song_file FROM discTable WHERE verify = 'Yes'";
 $result = mysqli_query($conn, $sql);
@@ -115,15 +110,7 @@ if (mysqli_num_rows($result) > 0)
     
     while($row = mysqli_fetch_assoc($result)) 
        {
-        //COMMENTED OUT IS THE OLD CODE FOR PLAYING OUR SONGS WITH NO TABLE////////////////////////////////////
-        //////////////////////////////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////LEAVE IT FOR LATER////////////////////////////////////////////////////
         
-        //$functionString = "getSongInfo('".$row['title']."')";
-        // create a button here and when clicked the button plays the song which will appear at
-        //  the bottom of the screen.
-        //$startDiv = "<div class = 'playDiv' id = '".$row['title']."'>";
-        //$createPlayButton = "<button class='playButton' onclick = "."getSongInfo('".$row['title']."Test')"." >&#9658;</button>";
         
         $songInfo = "&emsp;<div class = 'songInfoDiv' style = 'display:none;' id = '".$row['title']."Test'>".$row['title'] . " by ". $row['artist'];
         echo $songInfo;
@@ -136,11 +123,6 @@ if (mysqli_num_rows($result) > 0)
         
         echo $enterRow.$enterData.$endRow;
 
-        /* create a div with a name to add a button that plays the song when selected
-        echo "<div id = '" . $row["song_id"] . "'> <audio controls controlsList='nodownload'>
-        <source src = ".$row['song_file']." /></audio>"
-            . "  Title: " . $row['title'] . "    Artist: ". $row['artist'] . "<br><br>";
-            */
        }
     
     //END THE TABLE AND DIV HERE AFTER ALL THE SONGS HAVE BEEN ENTERED
@@ -188,15 +170,7 @@ if (mysqli_num_rows($result) > 0)
     
     while($row = mysqli_fetch_assoc($result)) 
        {
-        //COMMENTED OUT IS THE OLD CODE FOR PLAYING OUR SONGS WITH NO TABLE////////////////////////////////////
-        //////////////////////////////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////LEAVE IT FOR LATER////////////////////////////////////////////////////
-        
-        //$functionString = "getSongInfo('".$row['title']."')";
-        // create a button here and when clicked the button plays the song which will appear at
-        //  the bottom of the screen.
-        //$startDiv = "<div class = 'playDiv' id = '".$row['title']."'>";
-        //$createPlayButton = "<button class='playButton' onclick = "."getSongInfo('".$row['title']."Test')"." >&#9658;</button>";
+
         
         $songInfo = "&emsp;<div class = 'songInfoDiv' style = 'display:none;' id = '".$row['title']."Test'>".$row['title'] . " by ". $row['artist'];
         echo $songInfo;
@@ -209,11 +183,6 @@ if (mysqli_num_rows($result) > 0)
         
         echo $enterRow.$enterData.$endRow;
 
-        /* create a div with a name to add a button that plays the song when selected
-        echo "<div id = '" . $row["song_id"] . "'> <audio controls controlsList='nodownload'>
-        <source src = ".$row['song_file']." /></audio>"
-            . "  Title: " . $row['title'] . "    Artist: ". $row['artist'] . "<br><br>";
-            */
        }
     
     //END THE TABLE AND DIV HERE AFTER ALL THE SONGS HAVE BEEN ENTERED
@@ -254,10 +223,79 @@ ________________________________________________________________________________
                 if the user subscribes after uploading some songs they get Y+X... we have to make sure
                     we decrement X or Y after every upload
     -->
-    
         
-    <!-- Drag and drop pop up w/ browse option -->
-    <button>Upload Song</button>
+     <script>
+        
+        function getUser()
+         {
+             document.getElementById('artistName').value = sessionStorage.getItem('user');
+             document.getElementById('artistName').readonly = true;
+         }
+        </script>
+        
+        
+    <!-- Drag and drop pop up w/ browse option?? -->
+    <button id="uploadBtn">Upload Song</button>
+        
+    <div id="uploadModal" class="modal">
+       <span onclick="document.getElementById('uploadModal').style.display='none'" 
+            class="close" title="Close Modal">&times;</span>
+
+       <!-- Modal Content -->
+       <form class="modal-content animate" method="post" action="uploadSong.php" enctype="multipart/form-data">
+      
+          <div class="imgcontainer">
+             <img src="stream-logo.png" alt="Avatar" style="width: ; height:175px">
+          </div>
+
+          <div class="container">
+              
+              
+              
+             <label for="uploadFile" style="color: black"><b>Select .mp3 file</b></label>
+             <input type="file" name="uploadFile" required>
+            
+             <label for="artist" style="color: black"><b>Artist</b></label>
+             <input id = 'artistName'type="text"  value = '' name = "artist">
+             <br>
+             <br>
+          <div style="text-align: center;">
+             <input class='modalBtn' type="submit" onclick="getUser()"value = 'Upload'/>
+             <button class='modalBtn'type="button" onclick="document.getElementById('uploadModal').style.display='none'" class="cancelbtn">Cancel</button>
+        </div>
+    </div>
+  </form>
+</div>
+        
+        
+        
+        <script>
+       var modal = document.getElementById('uploadModal');
+       var button = document.getElementById('uploadBtn');
+       var span = document.getElementsByClassName('close')[0];
+        
+       button.onclick = function()
+          {
+           modal.style.display = "block"; 
+          }
+       
+       span.onclick = function()
+          {
+           modal.style.display = 'none'; 
+          }
+       window.onclick = function()
+          {
+           if( event.target == modal )
+              {
+               modal.style.display = 'none';
+              }
+          }
+        
+        
+    </script>
+        
+        
+    
         
         
         
@@ -286,7 +324,7 @@ ________________________________________________________________________________
 //////////////////////////////////////////////////////////////////////////////////////////////////////
     -->
         
-    <button>Help Verify Indie Artists</button>
+    <button id='helpArtistBtn'>Help Verify Indie Artists</button>
     
     
     </body>

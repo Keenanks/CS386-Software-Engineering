@@ -31,6 +31,7 @@ $userTable = "CREATE TABLE user (
     firstname VARCHAR(30),
     lastname VARCHAR(30),
     email VARCHAR(255) NOT NULL,
+    verified VARCHAR(3) NOT NULL,
     profilePic BLOB  
 )";
 
@@ -55,7 +56,8 @@ $songTable = "CREATE TABLE songTable (
     album VARCHAR(255) NOT NULL,
     genre VARCHAR(255) NOT NULL,
     artist VARCHAR(255) NOT NULL,
-    title VARCHAR(255) NOT NULL
+    title VARCHAR(255) NOT NULL,
+    listens BIGINT
 )";
 
 array_push($tableArray, $songTable);
@@ -67,6 +69,7 @@ $discSong = "CREATE TABLE discTable (
     genre VARCHAR(255) NOT NULL,
     artist VARCHAR(255) NOT NULL,
     title VARCHAR(255) NOT NULL,
+    listens BIGINT,
     verify VARCHAR(255) NOT NULL
 )";
 

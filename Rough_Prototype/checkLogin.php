@@ -16,28 +16,45 @@ if( !$conn )
   die( "Connection failed: " . mysqli_connect_error() );
  }
 
-
-session_start();
+?>
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+<?php
+        session_start();
 
    // down the line we have to protect from SQL injection
     
    $user = $_POST['name'];
    $psw  = $_POST['psw'];
+        $_SESSION['user'] = $user;
 
 $sql = "SELECT userName, password FROM user WHERE userName = '".$user."' AND 
     password = '".$psw."'";
 
 $result = mysqli_query($conn, $sql);
 
-if (mysqli_num_rows($result) == 1) 
+
+
+?>
+        
+        <?php 
+         if (mysqli_num_rows($result) == 1) 
    {
-     header('Location: homepage.php');
+             echo "<script>sessionStorage.setItem('user','".$user."');</script>";   
+             header('Location: homepage.php');
    }
-else
+                              
+        else
 {
     echo "<script> alert('The password or username is incorrect, Please try again');</script>";
     header('Location: failedLogin.php');
 }
-
-mysqli_close($conn);
+        ?>
+    
+        
+    </body>
+</html>
+<?php mysqli_close($conn);
 ?>

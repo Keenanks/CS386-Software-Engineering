@@ -48,11 +48,14 @@ function getSongInfo(thisElement)
         {
             var info = str.split(" ");
             //createSession('timeStamp',audio.currentTime);
-            endSource = info[0]+ ".mp3";
-            comparedSource = audio.src.split("/");
+            endSource = './songs/' + info[0]+ ".mp3";
+            
+            endSourceComparison = endSource.split('/');
+        
+            comparedSource = audio.src.split('/');
             //window.alert(comparedSource);
             createSession('timeStamp',audio.currentTime);
-            if(checkIfSameSongIsBeingPlayed(comparedSource,endSource))
+            if(checkIfSameSongIsBeingPlayed(comparedSource,endSourceComparison))
                 {
                     if(audio.paused)
                         {
@@ -85,18 +88,25 @@ function getSongInfo(thisElement)
         }
         
         
-    function checkIfSameSongIsBeingPlayed(array,string)
+    function checkIfSameSongIsBeingPlayed(array,array2)
         {
-            var iter;
-            for( iter = 0; iter < array.length; iter++)
+            if(checkEndValOfArray(array) == checkEndValOfArray(array2))
                 {
-                    if(array[iter] == string)
-                        {
-                            return true;
-                        }
+                    return true;
                 }
             return false;
         }
+
+    function checkEndValOfArray(array)
+       {
+        var iter = 0;
+        var result;
+        for( iter = 0; iter<array.length; iter++)
+            {
+                result = array[iter];
+            }
+        return result;
+       }
         
     function updateCurrentTimeWhilePlaying()
         {

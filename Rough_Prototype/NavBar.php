@@ -12,6 +12,19 @@
             function updateTime()
             {
                 sessionStorage.setItem('timeStamp',audio.currentTime);
+                localStorage.setItem('timeStamp',audio.currentTime);
+            }
+            
+            function checkPlaySession()
+            {
+                if( audio.paused )
+                    {
+                        sessionStorage.setItem('status', 'paused');
+                    }
+                else
+                    {
+                        sessionStorage.setItem('status', 'playing');
+                    }
             }
             
             
@@ -22,7 +35,7 @@
 	</head>
 		
 		
-	<body onbeforeunload="return updateTime()">
+	<body onbeforeunload="updateTime();checkPlaySession()">
 		<nav>
 			<div class="logo" id = 'logoHome'>
 				<a  href="homepage.php" onclick="updateTime()">

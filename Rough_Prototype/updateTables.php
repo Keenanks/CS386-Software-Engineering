@@ -45,13 +45,13 @@ function checkSong($song_title, $artist, $table)
 
 
 // create function that adds song table
-function placeSongIntoTable($file, $album_name, $genre, $artist, $song_title)
+function placeSongIntoTable($file, $album_name, $genre, $artist, $song_title, $listens)
    {
     global $conn;
     
     // sql string for adding song
-    $songString =  "INSERT INTO songTable (song_file, album, genre, artist, title) VALUES ('".$file.
-        "', '".$album_name."', '".$genre."','".$artist."', '".$song_title."');";
+    $songString =  "INSERT INTO songTable (song_file, album, genre, artist, title, listens) VALUES ('".$file.
+        "', '".$album_name."', '".$genre."','".$artist."', '".$song_title."','".$listens."');";
     
     // check if song is in database
     if( checkSong( $song_title, $artist, 'songTable') )
@@ -75,13 +75,14 @@ function placeSongIntoTable($file, $album_name, $genre, $artist, $song_title)
       }
    }
 
-function placeIntoDiscover($file, $album, $genre, $artist, $title, $verification)
+function placeIntoDiscover($file, $album, $genre, $artist, $title, $listens, $verification)
 {
     global $conn;
     
     // sql string for adding song
-    $songString =  "INSERT INTO discTable (song_file, album, genre, artist, title, verify) VALUES ('".$file.
-        "','".$album."', '".$genre."','".$artist."', '".$title."','".$verification."');";
+    $songString =  "INSERT INTO discTable (song_file, album, genre, artist, title, listens, verify)
+    VALUES ('".$file."','".$album."', '".$genre."','".$artist."',
+    '".$title."','".$listens."','".$verification."');";
     
     // check if song is in database
     if( checkSong( $title, $artist, 'discTable') )
@@ -105,24 +106,24 @@ function placeIntoDiscover($file, $album, $genre, $artist, $title, $verification
       }
 }
 
-placeSongIntoTable('Unchanged.mp3','386SQUAD','HipHop','NOR.T.H', 'Unchanged');
+placeSongIntoTable('Unchanged.mp3','386SQUAD','HipHop','NOR.T.H', 'Unchanged', 0);
 
-placeSongIntoTable('Ocean.mp3','386SQUAD','HipHop','NOR.T.H', 'Ocean');
+placeSongIntoTable('Ocean.mp3','386SQUAD','HipHop','NOR.T.H', 'Ocean', 0);
 
-placeSongIntoTable('Reality.mp3','386SQUAD','HipHop','NOR.T.H', 'Reality');
+placeSongIntoTable('Reality.mp3','386SQUAD','HipHop','NOR.T.H', 'Reality', 0);
 
-placeSongIntoTable('Potential.mp3','386SQUAD','HipHop','NOR.T.H', 'Potential');
+placeSongIntoTable('Potential.mp3','386SQUAD','HipHop','NOR.T.H', 'Potential', 0);
 
-placeSongIntoTable('Peak.mp3','386SQUAD','HipHop','NOR.T.H', 'Peak');
+placeSongIntoTable('Peak.mp3','386SQUAD','HipHop','NOR.T.H', 'Peak', 0);
 
-placeSongIntoTable('Deep.mp3','386SQUAD','HipHop','NOR.T.H', 'Deep');
+placeSongIntoTable('Deep.mp3','386SQUAD','HipHop','NOR.T.H', 'Deep', 0);
 
 
 ////////// insert into discTable \\\\\\\\\\\
 
-placeIntoDiscover('JazzyFrenchy.mp3', 'N/A', 'Jazz', 'Benjamin Tissot', 'JazzyFrenchy', 'Yes');
+placeIntoDiscover('JazzyFrenchy.mp3', 'N/A', 'Jazz', 'Benjamin Tissot', 'JazzyFrenchy', 0 ,'Yes');
 
-placeIntoDiscover('HappyRock.mp3', 'N/A', 'Rock', 'Benjamin Tissot', 'HappyRock', 'No');
+placeIntoDiscover('HappyRock.mp3', 'N/A', 'Rock', 'Benjamin Tissot', 'HappyRock', 0, 'No');
 
 
 mysqli_close($conn);

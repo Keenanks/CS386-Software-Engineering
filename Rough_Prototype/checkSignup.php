@@ -17,7 +17,8 @@ if( !$conn )
  }
 
 
-session_start(); ?>
+session_start(); 
+?>
 
 <!DOCTYPE html>
 <html>
@@ -45,15 +46,17 @@ if (mysqli_num_rows($result) == 1)
 
 else
 {
-    $userString =  "INSERT INTO user (userName, password, firstname, lastname, email, profilePic) VALUES ('".$user.
-        "','".$psw."', 'NULL','NULL', '".$email."','NULL');";
+    $userString =  "INSERT INTO user (userName, password, firstname, lastname, email, verified, profilePic) VALUES ('".$user.
+        "','".$psw."', 'NULL','NULL', '".$email."','No','NULL');";
     mysqli_query($conn, $userString);
-    mysqli_close($conn);
-    
+    echo "<script>sessionStorage.setItem('user','".$user."');</script>";
     header('Location: homepage.php');
 }
 
 
 ?>
+    
+    
 </body>
+<?php mysqli_close($conn);?>
 </html>
