@@ -13,10 +13,6 @@
 		
 	<body>
 		
-		<div id="container">
-			<div id="main">
-			</div>
-		</div>
 		
 		<footer id="footer">
 			<div>
@@ -28,7 +24,7 @@
 				
 				<ul>	
 					<li>
-						<a href="#legal">Legal-For testing purposes some songs were from https://www.bensound.com</a>
+						<a href="#legal">Legal</a>
 					</li>
 					
 					<li>

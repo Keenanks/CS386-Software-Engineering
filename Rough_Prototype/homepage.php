@@ -2,18 +2,19 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="hhtps://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	
     
 </head>
     
     
 <body>
-
+	
  <?php
     include('NavBar.php');
 	include('banner.php');
+	include('homepageBody.php');
 	include('footer.php');
     ?>
     

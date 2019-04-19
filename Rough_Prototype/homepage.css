@@ -4,21 +4,13 @@
 	box-sizing: border-box;
 }
 
-
-body{
-	background-color: dimgray;
-	overflow-y: scroll;
-}
-
-
-
 nav{
 	z-index: 10;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	height: 80px;
-	background-color: transparent;
+	background: rgba(0, 0, 0, 0.4);
 	font-family: 'Poppins', sans-serif;
 	position: fixed;
 	width: 100%;
@@ -75,7 +67,7 @@ nav{
 		right: 0px;
 		height: 92vh;
 		top: 8vh;
-		background-color: black;
+		background: rgba(0, 0, 0, 0.5);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -192,22 +184,13 @@ nav{
 	background-size: 60%;
 	background-position: center;
 	background-repeat: no-repeat;
-}
-
-#container {
-	min-height: 100%;
-}
-
-#main {
-	overflow: auto;
-	padding-bottom: 100px;
-}
+}	
 
 #footer {
 	display: flex;
-	background-color: black;
+	background: rgba(0, 0, 0, 0.9);
 	position: relative;
-	height: 200px;
+	height: 180px;
 	clear: both;
 	justify-content: space-around;
 	align-items: center;
