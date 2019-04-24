@@ -32,6 +32,7 @@ $userTable = "CREATE TABLE user (
     lastname VARCHAR(30),
     email VARCHAR(255) NOT NULL,
     verified VARCHAR(3) NOT NULL,
+    subscribed VARCHAR(3) NOT NULL,
     profilePic BLOB  
 )";
 

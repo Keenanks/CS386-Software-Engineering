@@ -1,5 +1,5 @@
 <?php
-    $testCost = 5000; //cost is $50.00
+    $testCost = 600; //cost is $6.00
     require_once('vendor/autoload.php');
 
     \Stripe\Stripe::setApiKey('sk_test_fXNsAQI4J5XnoU3BdbEoJpSj');
@@ -12,6 +12,21 @@
     $email = $POST['email'];
     $token = $POST['stripeToken'];
 
+    $product = \Stripe\Product::create([
+        'name' => 'StreamSubscription',
+        'type' => 'service'
+        
+    ]);
+
+
+    $plan = \Stripe\Plan::create([
+    'product' => $product->id,
+    'nickname' => 'Monthly',
+    'interval' => 'month',
+    'currency' => 'usd',
+    'amount' => 750,
+    ]);
+
     // creates a customer in stripe
     $customer = \Stripe\Customer::create(array(
         "email" => $email,
@@ -19,13 +34,11 @@
     ));
 
     // charge the customer
-    $charge = \Stripe\Charge::create(array(
-        "amount" => $testCost,
-        "currency" => "usd",
-        "description" => "testing the description",
-        "customer" => $customer->id
+    $charge = \Stripe\Subscription::create(array(
+        "customer" => $customer->id,
+        'items' => [['plan' => $plan->id]]
     ));
 
     // redirect to payment success
-    header('Location: payment_success.php?tid='.$charge->id.'&product='.$charge->description);
+    header('Location: payment_success.php');//?tid='.$charge->id);//.'&product='.$charge->description);
 ?>

@@ -18,11 +18,12 @@ if( !$conn )
   die( "Connection failed: " . mysqli_connect_error() );
  }
 
-print_r($_FILES);
-print_r($_POST);
+//print_r($_FILES);
+//print_r($_POST);
 
 $file = $_FILES['uploadFile']['name'];
-echo $_FILES['artist'];
+$artist = $_POST['artist'];
+//echo $_POST['artist'];
  
 // check if song exists in Database
 function checkSong($song_title, $artist, $table)
@@ -77,23 +78,7 @@ function placeIntoDiscover($file, $album, $genre, $artist, $title, $listens, $ve
       }
 }
 
-if (isset ($_POST['artist']))
-{
-    $artist = $_POST['artist'];
-}
-else
-{
-    echo 'artist not set';
-}
 
-if (isset ($_POST['audioFile']))
-{
-    $file = $_POST['audioFile'];
-}
-else
-{
-    echo 'file not set';
-}
 
 
 
@@ -148,7 +133,10 @@ if( validityOfUpload( $file ) )
     removeSpaces( $file );
     $songName = removeMP3Ext ( $file );
     placeIntoDiscover($file, 'N/A', 'Jazz', $artist, $songName, 0 ,'No');
-    
+    /*echo "<h1>File uploaded successfully</h1>";
+             echo"<br><br>";
+             echo "<a href = 'DiscoverPage.php'>Click here to go back</a>";
+    */
    }
 
 
@@ -158,22 +146,22 @@ if( validityOfUpload( $file ) )
 
 $location = './songs/';
 $target = $location;
-echo $_FILES['uploadFile']['error'];
+//echo $_FILES['uploadFile']['error'];
 
-if(isset($_FILES['uploadFile']['name']))
-{
+/*if(isset($_FILES['uploadFile']['name']))
+{*/
     $tempName = $_FILES['uploadFile']['tmp_name'];
     $target .= $_FILES['uploadFile']['name'];
-    if(!empty($name))
-    {
+   /* if(!empty($name))
+    {*/
         if( move_uploaded_file($tempName,$target))
             {
              echo "<h1>File uploaded successfully</h1>";
              echo"<br><br>";
-             echo "<a href = 'Discover.php'>Click here to go back</a>";
+             echo "<a href = 'DiscoverPage.php'>Click here to go back</a>";
             }
-    }
-}
+    /*}
+}*/
 
 else
 {

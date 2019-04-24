@@ -1,4 +1,7 @@
-<?php include('NavBar.php');
+<?php
+session_start();
+
+include('NavBar.php');
 
 $servername = "localhost";
 $username = "root";
@@ -16,6 +19,7 @@ if( !$conn )
  {
   die( "Connection failed: " . mysqli_connect_error() );
  }
+
 ?>
 
 <!DOCTYPE HTML>
@@ -225,6 +229,12 @@ ________________________________________________________________________________
     -->
         
      <script>
+         
+        function submitUploadInfo()
+           {
+               document.getElementById('fileUpload').submit();
+               document.getElementById('artistUpload').submit();
+           }
         
         function getUser()
          {
@@ -233,8 +243,7 @@ ________________________________________________________________________________
          }
         </script>
         
-        
-    <!-- Drag and drop pop up w/ browse option?? -->
+        <!-- Drag and drop pop up w/ browse option?? -->
     <button id="uploadBtn">Upload Song</button>
         
     <div id="uploadModal" class="modal">
@@ -256,7 +265,7 @@ ________________________________________________________________________________
              <input type="file" name="uploadFile" required>
             
              <label for="artist" style="color: black"><b>Artist</b></label>
-             <input id = 'artistName'type="text"  value = '' name = "artist">
+             <input id = 'artistName'type="text"  value = '' name = "artist" type ='hidden'>
              <br>
              <br>
           <div style="text-align: center;">
@@ -265,7 +274,9 @@ ________________________________________________________________________________
         </div>
     </div>
   </form>
+  
 </div>
+
         
         
         
@@ -290,6 +301,9 @@ ________________________________________________________________________________
                modal.style.display = 'none';
               }
           }
+       
+       
+       
         
         
     </script>
@@ -325,6 +339,81 @@ ________________________________________________________________________________
     -->
         
     <button id='helpArtistBtn'>Help Verify Indie Artists</button>
+        
+        
+        
+    <div id="verifyModal" class="modal">
+       <span onclick="document.getElementById('uploadModal').style.display='none'" 
+            class="close" title="Close Modal">&times;</span>
+
+       <form class="modal-content animate" method="post" action="payment.php" enctype="multipart/form-data">
+      
+          
+
+          <div class="container" style="text-align: center;">
+              <h1>You must be subrscribed to verify artists</h1>
+              
+              
+            
+          <div style="text-align: center;">
+             <input class='modalBtn' type="submit" value = 'Subscribe'/>
+        </div>
+    </div>
+  </form>
+  
+</div>
+<?php
+        
+        
+        $findUser = 'SELECT subscribed FROM user WHERE userName ="'.$_SESSION['user'].'"';
+        if(mysqli_query($conn,$findUser))
+        {
+           $value = mysqli_fetch_row(mysqli_query($conn,$findUser));
+            
+            if($value[0]!='Yes')
+            {
+                echo "<script>
+        var modal2 = document.getElementById('verifyModal');
+       var button2 = document.getElementById('helpArtistBtn');
+       var span2 = document.getElementsByClassName('close')[1];
+        
+       button2.onclick = function()
+          {
+           modal2.style.display = 'block'; 
+          }
+       
+       span2.onclick = function()
+          {
+           modal2.style.display = 'none'; 
+          }
+       window.onclick = function()
+          {
+           if( event.target == modal2 )
+              {
+               modal2.style.display = 'none';
+              }
+          }
+        
+        </script>";
+            }
+            else
+            {
+                echo "<script>
+        
+            
+            
+               document.getElementById('helpArtistBtn').onclick = function ()
+               {
+                location.href = 'verifyArtists.php';
+               };
+            
+        
+                    </script>";
+            }
+        }
+        ?>
+        
+        
     
     
     </body>

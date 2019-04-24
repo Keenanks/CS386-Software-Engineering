@@ -1,4 +1,5 @@
-<?php    
+<?php
+session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -32,9 +33,10 @@ session_start();
    $user = $_POST['name'];
    $psw  = $_POST['psw'];
    $email = $_POST['email'];
+   $_SESSION['user'] = $user;
 
-$sql = "SELECT userName, password, email FROM user WHERE userName = '".$user."' AND 
-    password = '".$psw."' AND email = '".$email."'";
+$sql = "SELECT userName, password, email FROM user WHERE userName = '".$user."' OR 
+    email = '".$email."'";
 
 $result = mysqli_query($conn, $sql);
 
@@ -46,11 +48,16 @@ if (mysqli_num_rows($result) == 1)
 
 else
 {
-    $userString =  "INSERT INTO user (userName, password, firstname, lastname, email, verified, profilePic) VALUES ('".$user.
-        "','".$psw."', 'NULL','NULL', '".$email."','No','NULL');";
+    $userString =  "INSERT INTO user (userName, password, firstname, lastname, email, verified,
+    subscribed, profilePic) VALUES ('".$user.
+        "','".$psw."', 'NULL','NULL', '".$email."','No', 'No', 'NULL');";
     mysqli_query($conn, $userString);
     echo "<script>sessionStorage.setItem('user','".$user."');</script>";
-    header('Location: homepage.php');
+             echo "<script> if (sessionStorage.getItem('user') == '".$user."')
+             {
+              window.location.href = 'homepage.php';
+             }</script>";
+    //header('Location: homepage.php');
 }
 
 
