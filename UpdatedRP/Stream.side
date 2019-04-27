@@ -1,0 +1,175 @@
+{
+  "id": "fc0ab937-74e9-41ef-9ef8-652f50b1ca53",
+  "version": "2.0",
+  "name": "Stream",
+  "url": "http://192.168.64.2/UpdatedRP/homepage.php",
+  "tests": [{
+    "id": "8086c2c2-84b2-4534-91f0-d10ecd1e5a9e",
+    "name": "FunctioningLinks",
+    "commands": [{
+      "id": "d6a10e0b-da1c-410e-a21b-d3b3dfac7b0c",
+      "comment": "",
+      "command": "open",
+      "target": "http://192.168.64.2/UpdatedRP/homepage.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9c1b7cae-273a-46df-867b-ec4f884dccce",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "949x777",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "10d170dc-1875-4c80-865c-277399aafa9c",
+      "comment": "",
+      "command": "click",
+      "target": "css=#logoHome img",
+      "targets": [
+        ["css=#logoHome img", "css:finder"],
+        ["xpath=//img[@alt='Stream']", "xpath:img"],
+        ["xpath=//div[@id='logoHome']/a/img", "xpath:idRelative"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8ed1cc46-08ad-4096-adc8-baa4984a8997",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Discover",
+      "targets": [
+        ["linkText=Discover", "linkText"],
+        ["css=.nav-buttons > li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Discover')]", "xpath:link"],
+        ["xpath=(//a[@onclick='updateTime()'])[4]", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'DiscoverPage.php')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Discover')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d348db0-d6b3-413a-9a88-825a30e03888",
+      "comment": "",
+      "command": "click",
+      "target": "id=uploadBtn",
+      "targets": [
+        ["id=uploadBtn", "id"],
+        ["css=#uploadBtn", "css:finder"],
+        ["xpath=//button[@id='uploadBtn']", "xpath:attributes"],
+        ["xpath=//body/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Upload Song')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "19b3e701-857a-487b-b255-6e5dc5600320",
+      "comment": "",
+      "command": "click",
+      "target": "css=.modalBtn:nth-child(2)",
+      "targets": [
+        ["css=.modalBtn:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='uploadModal']/form/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//form/div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Cancel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9f2207eb-5b5a-4c92-a844-8a208e92f6a4",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Music",
+      "targets": [
+        ["linkText=Music", "linkText"],
+        ["css=li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Music')]", "xpath:link"],
+        ["xpath=(//a[@onclick='updateTime()'])[2]", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'songpage.php')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Music')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "66526f48-fa33-4fce-899a-028c169a1bd7",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(2) > .SongNameClick",
+      "targets": [
+        ["css=tr:nth-child(2) > .SongNameClick", "css:finder"],
+        ["xpath=//td[@onclick=\"getSongInfo('UnchangedTest')\"]", "xpath:attributes"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Unchanged')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d9ae35c-f618-470e-a1ad-64109c165279",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(3) > .SongNameClick",
+      "targets": [
+        ["css=tr:nth-child(3) > .SongNameClick", "css:finder"],
+        ["xpath=//td[@onclick=\"getSongInfo('OceanTest')\"]", "xpath:attributes"],
+        ["xpath=//tr[3]/td", "xpath:position"],
+        ["xpath=//td[contains(.,'Ocean')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "476a4bff-478c-40af-b82d-831e32099f44",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(4) > .SongNameClick",
+      "targets": [
+        ["css=tr:nth-child(4) > .SongNameClick", "css:finder"],
+        ["xpath=//td[@onclick=\"getSongInfo('RealityTest')\"]", "xpath:attributes"],
+        ["xpath=//tr[4]/td", "xpath:position"],
+        ["xpath=//td[contains(.,'Reality')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5d3f7ae0-b381-49ef-9d8d-697b55eaad50",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(5) > .SongNameClick",
+      "targets": [
+        ["css=tr:nth-child(5) > .SongNameClick", "css:finder"],
+        ["xpath=//td[@onclick=\"getSongInfo('PotentialTest')\"]", "xpath:attributes"],
+        ["xpath=//tr[5]/td", "xpath:position"],
+        ["xpath=//td[contains(.,'Potential')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8734e398-53c2-4e04-b114-44332fbc0b81",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(6) > .SongNameClick",
+      "targets": [
+        ["css=tr:nth-child(6) > .SongNameClick", "css:finder"],
+        ["xpath=//td[@onclick=\"getSongInfo('PeakTest')\"]", "xpath:attributes"],
+        ["xpath=//tr[6]/td", "xpath:position"],
+        ["xpath=//td[contains(.,'Peak')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "36253171-ffb7-4537-950f-8ab0e5122528",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(7) > .SongNameClick",
+      "targets": [
+        ["css=tr:nth-child(7) > .SongNameClick", "css:finder"],
+        ["xpath=//td[@onclick=\"getSongInfo('DeepTest')\"]", "xpath:attributes"],
+        ["xpath=//tr[7]/td", "xpath:position"],
+        ["xpath=//td[contains(.,'Deep')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "3535b4b4-b549-45d7-ab09-39ea36eed5a4",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://192.168.64.2/", "http://192.168.64.2/UpdatedRP/homepage.php"],
+  "plugins": []
+}
