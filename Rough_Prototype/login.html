@@ -77,16 +77,31 @@ class="close" title="Close3 Modal3">&times;</span>
       <input type="text" placeholder="Enter Username" name="name" id="name" required>
           
      <label for="email" style="color: black"><b>Please enter your Email</b></label>
-      <input type="text" placeholder="Enter Username" name="email" required>
+      <input type="text" placeholder="Enter Username" name="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required>
         
       <label for="psw" style="color: black"><b>Please select a Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>    
+      <input type="password" placeholder="Enter Password" name="psw" id = "password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter, onelowercase letter, and at least 8 or more characters"required>    
         
       <label for="psw" style="color: black"><b>Re-enter your Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>    
+      <input type="password" placeholder="Enter Password" name="psw" id = "confirmPassword" required>  
+    <script type="text/javascript">
+        function Validate() 
+        {
+          var userPassword = document.getElementById("password").value;
+          var confirmUserPassword = document.getElementById("confirmPassword").value;
+
+          if ( userPassword != confirmUserPassword ) 
+          {
+              alert("Passwords do not match.");
+              return false;
+          }
+
+          return true;
+      }
+        </script> 
         <br>
         <br>
-      <button type="submit">SignUp</button>
+      <button type="submit" onclick="return Validate()">Sign Up</button>
         
         <!-- FIXED the button cancel button -->
         <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
@@ -97,7 +112,7 @@ class="close" title="Close3 Modal3">&times;</span>
 
     
   </form>
-</div>    
+</div>      
     
     
     
