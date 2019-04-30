@@ -23,6 +23,12 @@ if( !$conn )
 
 $file = $_FILES['uploadFile']['name'];
 $artist = $_POST['artist'];
+$genre = $_POST['genre'];
+$album = $_POST['Album'];
+if( $album == '')
+{
+   $album = 'N/A';
+}
 //echo $_POST['artist'];
  
 // check if song exists in Database
@@ -52,7 +58,7 @@ function placeIntoDiscover($file, $album, $genre, $artist, $title, $listens, $ve
     global $conn;
     
     // sql string for adding song
-    $songString =  "INSERT INTO discTable (song_file, album, genre, artist, title, listens, verify)
+    $songString =  "INSERT INTO discTable (song_file, album, genre, artist, title, likes, verify)
     VALUES ('".$file."','".$album."', '".$genre."','".$artist."',
     '".$title."','".$listens."','".$verification."');";
     
@@ -113,7 +119,7 @@ function validityOfUpload( $fileToValidate )
 //fucntio that removes spaces from file after upload
 function removeSpaces( $fileToRemoveSpaces )
    {
-    $fileToRemoveSpaces = str_replace(' ','', $fileToRemoveSpaces);
+    $fileToRemoveSpaces = str_replace(' ','-', $fileToRemoveSpaces);
    }
 
 function renameFile( $fileToRename )
@@ -132,7 +138,8 @@ if( validityOfUpload( $file ) )
    {
     removeSpaces( $file );
     $songName = removeMP3Ext ( $file );
-    placeIntoDiscover($file, 'N/A', 'Jazz', $artist, $songName, 0 ,'No');
+   // $songName = str_replace('-',' ', $songName);
+    placeIntoDiscover($file, $album, $genre, $artist, $songName, 0 ,'No');
     /*echo "<h1>File uploaded successfully</h1>";
              echo"<br><br>";
              echo "<a href = 'DiscoverPage.php'>Click here to go back</a>";

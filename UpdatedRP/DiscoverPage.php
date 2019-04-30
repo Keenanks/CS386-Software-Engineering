@@ -29,6 +29,7 @@ if( !$conn )
        <title>Discover</title>
         
         
+       
        <link rel = "stylesheet"
           type = "text/css"
           href = "discoverCSS.css"/>
@@ -266,6 +267,25 @@ ________________________________________________________________________________
             
              <label for="artist" style="color: black"><b>Artist</b></label>
              <input id = 'artistName'type="text"  value = '' name = "artist" type ='hidden'>
+             
+             <br>
+             <br>
+              
+             <label for='genre'style="color: black"><b>Genre</b></label>
+             <select name='genre'>
+               <option value="Rock">Rock</option>
+                <option value="HipHop">HipHop</option>
+                <option value="Jazz">Jazz</option>
+                <option value="Rap">Rap</option>
+                <option value="Classical">Classical</option>
+                <option value="R&B">R&B</option>
+             </select>
+             
+             <br>
+             <br>
+             
+             <label for='Album'style="color: black"><b>Album Name *optional</b></label>
+             <input name="Album" type = 'text'>
              <br>
              <br>
           <div style="text-align: center;">

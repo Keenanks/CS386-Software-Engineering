@@ -70,7 +70,7 @@ $discSong = "CREATE TABLE discTable (
     genre VARCHAR(255) NOT NULL,
     artist VARCHAR(255) NOT NULL,
     title VARCHAR(255) NOT NULL,
-    listens BIGINT,
+    likes BIGINT,
     verify VARCHAR(255) NOT NULL
 )";
 

@@ -8,6 +8,14 @@
 		<link rel="stylesheet" href ="homepage.css" />
 		
         <script>
+            
+            
+            function deleteSession()
+            {
+                sessionStorage.clear();
+                location.href = 'login.html';
+                
+            }
         
             function updateTime()
             {
@@ -134,8 +142,8 @@ window.onclick = function(event) {
                         <button onclick="myFunction()" class="dropbtn">User</button>
                         <div id="myDropdown" class="dropdown-content">
                             <a href="#">Settings</a>
-                            <a href="#">Subscribe</a>
-                            <a href="#">Link 3</a>
+                            <a href="payment.php">Subscribe</a>
+                            <a href="#" onclick="deleteSession()">Sign Out</a>
                         </div>
                     </div>
 				</li>

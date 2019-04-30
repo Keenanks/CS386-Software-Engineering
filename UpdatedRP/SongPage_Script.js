@@ -5,7 +5,7 @@ function getSongInfo(thisElement)
         
         //splits string content into an array to parse
         var songStrInfo = document.getElementById(thisElement).innerHTML.split(" ");
-           
+               
         // gets the first element which should be the song
         var song = songStrInfo[0];
            

@@ -80,7 +80,7 @@ function placeIntoDiscover($file, $album, $genre, $artist, $title, $listens, $ve
     global $conn;
     
     // sql string for adding song
-    $songString =  "INSERT INTO discTable (song_file, album, genre, artist, title, listens, verify)
+    $songString =  "INSERT INTO discTable (song_file, album, genre, artist, title, likes, verify)
     VALUES ('".$file."','".$album."', '".$genre."','".$artist."',
     '".$title."','".$listens."','".$verification."');";
     
